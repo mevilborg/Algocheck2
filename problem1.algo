@@ -1,0 +1,42 @@
+ALGORITHM problem1
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[50];
+    x,n,i,j : INTEGER;
+    test : BOOLEAN ;
+    
+    sum : INTEGER :=0;
+BEGIN
+   REPEAT
+    write("give me the length of the first table ");
+    read(n);
+    write("give me the length of the second table ");
+    read(x);
+   UNTIL ((n>0 and n<50) and (x>0 and x<50))
+   
+    
+   
+   FOR i FROM 0 TO n-1 STEP 1  DO
+   test:=false;
+    FOR j FROM 0 TO x-1 STEP 1  DO
+        IF (tab1[i]=tab2[j]) THEN
+        test:=true;
+        END_IF
+    END_FOR
+    IF (test=false) THEN
+        sum:=sum+tab2[i];
+    END_IF
+   END_FOR
+   FOR j FROM 0 TO x-1 STEP 1  DO
+   test:=false;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        IF (tab1[j]=tab2[i]) THEN
+            test:=true;
+        END_IF
+    END_FOR
+    IF (test=false) THEN
+        sum:=sum+tab2[j];
+    END_IF
+   END_FOR
+   write("la somme est "sum);
+   
+END
